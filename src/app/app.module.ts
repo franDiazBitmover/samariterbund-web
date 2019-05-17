@@ -15,6 +15,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { VolunteersComponent } from './volunteers/volunteers.component';
 import { VolunteerComponent } from './volunteer/volunteer.component';
 import { VolunteerService } from './services/volunteer-service';
+import { CategoryService } from './services/category-service';
+import { OperationService } from './services/operation-service';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,11 @@ import { VolunteerService } from './services/volunteer-service';
     NgMultiSelectDropDownModule.forRoot(),
     AngularFontAwesomeModule
   ],
-  providers: [VolunteerService],
+  providers: [
+    VolunteerService,
+    CategoryService,
+    OperationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

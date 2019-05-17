@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Operation } from '../model/operation';
+import { OperationService } from '../services/operation-service';
 
 @Component({
   selector: 'app-operations',
@@ -9,53 +10,12 @@ import { Operation } from '../model/operation';
 export class OperationsComponent implements OnInit {
   operations: Operation[]
 
-  displayedColumns = ["id", "name", "location"];
-
-  categories = [
-    {
-      id: 1,
-      name: 'Western'
-    },
-    {
-      id: 1,
-      name: 'Scifi'
-    }
-  ];
-
-  dropdownSettings = {
-    singleSelection: false,
-    idField: 'id',
-    textField: 'name',
-    selectAllText: 'Select All',
-    unSelectAllText: 'UnSelect All',
-    itemsShowLimit: 3,
-    allowSearchFilter: true
-  };
-
-  selected = [];
-
-  constructor() { }
+  constructor(private operationService: OperationService) { }
 
   ngOnInit() {
-    this.operations = [
-      {
-        id: 1,
-        name: "Operation Dragon",
-        location: "Scheleppe"
-      },
-      {
-        id: 2,
-        name: "Kill Jamie Oliver",
-        location: "Global"
-      }
-    ];
-  }
-
-  onSelect() {
-    console.log(this.selected);
-  }
-
-  test() {
-    console.log(this.selected);
+    this.operationService.findAll()
+    .subscribe(operations => {
+      this.operations = operations;
+    });
   }
 }

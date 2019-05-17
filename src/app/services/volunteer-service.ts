@@ -38,8 +38,7 @@ export class VolunteerService {
       categories: [
         {
           id: 2,
-          name: 'Scifi',
-          categories: []
+          name: 'Scifi'
         },
       ]
     });

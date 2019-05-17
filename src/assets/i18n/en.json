@@ -18,5 +18,11 @@
     "CATEGORIES": "Categories",
     "ADD": "Add new",
     "SAVE": "Save"
+  },
+  "OPERATIONS": {
+    "TITLE": "Operations",
+    "NAME": "Name",
+    "ADD": "Add new",
+    "SAVE": "Save"
   }
 }
