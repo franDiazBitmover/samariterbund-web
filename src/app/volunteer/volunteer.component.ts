@@ -78,4 +78,8 @@ export class VolunteerComponent implements OnInit {
       });
   }
 
+  isFormValid() {
+    return this.volunteer.name && this.volunteer.name.length;
+  }
+
 }

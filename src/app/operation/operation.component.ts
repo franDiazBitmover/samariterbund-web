@@ -65,4 +65,10 @@ export class OperationComponent implements OnInit {
         }
       });
   }
+
+  isFormValid() {
+    return this.operation.name && this.operation.name.length
+      && this.operation.description && this.operation.description.length
+      && this.operation.categories && this.operation.categories.length;
+  }
 }
