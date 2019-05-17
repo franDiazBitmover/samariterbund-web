@@ -5,6 +5,7 @@ import { OperationsComponent } from './app/operations/operations.component';
 import { CategoriesComponent } from './app/categories/categories.component';
 import { VolunteersComponent } from './app/volunteers/volunteers.component';
 import { VolunteerComponent } from './app/volunteer/volunteer.component';
+import { OperationComponent } from './app/operation/operation.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
     data: { title: 'Volunteers' }
   },
   {
+    path: 'new-volunteer',
+    component: VolunteerComponent,
+    data: { title: 'Volunteer' }
+  },
+  {
     path: 'volunteer/:id',
     component: VolunteerComponent,
     data: { title: 'Volunteer' }
@@ -31,6 +37,16 @@ const routes: Routes = [
     path: 'operations',
     component: OperationsComponent,
     data: { title: 'Operations' }
+  },
+  {
+    path: 'new-operation',
+    component: OperationComponent,
+    data: { title: 'Operation' }
+  },
+  {
+    path: 'operation/:id',
+    component: OperationComponent,
+    data: { title: 'Operation' }
   },
   {
     path: '',

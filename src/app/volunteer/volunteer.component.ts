@@ -4,6 +4,7 @@ import { Volunteer } from '../model/volunteer';
 import { VolunteerService } from '../services/volunteer-service';
 import { ActivatedRoute } from '@angular/router';
 import { map, flatMap } from 'rxjs/operators'
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-volunteer',
@@ -47,11 +48,17 @@ export class VolunteerComponent implements OnInit {
     ];
 
     this.route.paramMap.pipe(
-      flatMap(params => this.volunteerService.findOne(params['id'])),
-    ).subscribe( volunteer => {
+      flatMap(params => {
+        const id = +params.get('id');
+        if (id) {
+          return this.volunteerService.findOne(id);
+        } else {
+          return empty();
+        }
+      }),
+    ).subscribe(volunteer => {
       this.volunteer = volunteer;
     });
-
   }
 
   save() {

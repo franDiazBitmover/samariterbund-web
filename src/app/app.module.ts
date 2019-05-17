@@ -17,15 +17,17 @@ import { VolunteerComponent } from './volunteer/volunteer.component';
 import { VolunteerService } from './services/volunteer-service';
 import { CategoryService } from './services/category-service';
 import { OperationService } from './services/operation-service';
+import { OperationComponent } from './operation/operation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     OperationsComponent,
+    OperationComponent,
     CategoriesComponent,
     VolunteersComponent,
-    VolunteerComponent
+    VolunteerComponent    
   ],
   imports: [
     BrowserModule,
