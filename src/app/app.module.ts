@@ -18,6 +18,8 @@ import { VolunteerService } from './services/volunteer-service';
 import { CategoryService } from './services/category-service';
 import { OperationService } from './services/operation-service';
 import { OperationComponent } from './operation/operation.component';
+import { LoginService } from './services/login-service';
+import { TokenHolder } from './services/token-holder';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { OperationComponent } from './operation/operation.component';
   providers: [
     VolunteerService,
     CategoryService,
-    OperationService
+    OperationService,
+    LoginService,
+    TokenHolder
   ],
   bootstrap: [AppComponent]
 })

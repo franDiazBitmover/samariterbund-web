@@ -9,7 +9,8 @@
   },
   "LOGIN": {
     "USERNAME": "username",
-    "PASSWORD": "password"
+    "PASSWORD": "password",
+    "LOGIN": "Log in"
   },
   "CATEGORIES": {
     "TITLE": "Categories",
