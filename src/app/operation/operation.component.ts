@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { map, flatMap } from 'rxjs/operators'
 import { empty } from 'rxjs';
 import { Operation } from '../model/operation';
+import { Category } from '../model/category';
+import { CategoryService } from '../services/category-service';
 
 @Component({
   selector: 'app-operation',
@@ -13,10 +15,28 @@ import { Operation } from '../model/operation';
 export class OperationComponent implements OnInit {
 
   operation = new Operation();
+  categoriesList: Category[] = [];
 
-  constructor(private operationService: OperationService, private route: ActivatedRoute) { }
+  dropdownSettings = {
+    singleSelection: false,
+    idField: 'id',
+    textField: 'name',
+    selectAllText: 'Select All',
+    unSelectAllText: 'UnSelect All',
+    allowSearchFilter: true
+  };
+
+  constructor(
+    private operationService: OperationService, 
+    private categoryService:CategoryService, 
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.categoryService.findAll()
+    .subscribe(categories => {
+      this.categoriesList = categories;
+    });
+
     this.route.paramMap.pipe(
       flatMap(params => {
         const id = +params.get('id');

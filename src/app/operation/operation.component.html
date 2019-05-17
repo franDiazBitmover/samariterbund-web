@@ -1,29 +1,43 @@
 <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <div class="card card-signin my-5">
-          <div class="card-body">
-            <form class="form-signin" name="loginForm">
-              <div class="row">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="name" name="name"
-                    placeholder="{{ 'OPERATIONS.NAME' | translate }}" [(ngModel)]="operation.name">
-                </div>
-              </div>
-            </form>
-  
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <form class="form-signin" name="loginForm">
             <div class="row">
-              <div class="col-md-2">
-                <button type="button" class="btn btn-success"
-                  (click)="save()">{{ 'OPERATIONS.SAVE' | translate }}</button>
+              <div class="form-group">
+                <input type="text" class="form-control" id="name" name="name"
+                  placeholder="{{ 'OPERATIONS.NAME' | translate }}" [(ngModel)]="operation.name">
               </div>
-              <div class="col-md-2">
-                <button type="button" class="btn btn-primary"
-                  routerLink="/operations">{{ 'MAIN.BACK' | translate }}</button>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <input type="text" class="form-control" id="description" name="description"
+                  placeholder="{{ 'OPERATIONS.DESCRIPTION' | translate }}" [(ngModel)]="operation.description">
               </div>
+            </div>
+            <div class="row">
+              <div class="form-group">
+                <ng-multiselect-dropdown name="categoriesList" [data]="categoriesList"
+                  placeholder="{{ 'VOLUNTEERS.CATEGORIES' | translate }}" [(ngModel)]="operation.categories"
+                  [settings]="dropdownSettings">
+                </ng-multiselect-dropdown>
+              </div>
+            </div>
+          </form>
+
+          <div class="row">
+            <div class="col-md-2">
+              <button type="button" class="btn btn-success"
+                (click)="save()">{{ 'OPERATIONS.SAVE' | translate }}</button>
+            </div>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-primary"
+                routerLink="/operations">{{ 'MAIN.BACK' | translate }}</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

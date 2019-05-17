@@ -1,6 +1,6 @@
 {
   "MAIN": {
-    "TITLE": "Samariterbund deserves a nice header here!",
+    "TITLE": "Samariterbund",
     "BACK": "Back"
   },
   "LOGIN": {
@@ -22,6 +22,7 @@
   "OPERATIONS": {
     "TITLE": "Operations",
     "NAME": "Name",
+    "DESCRIPTION": "Description",
     "ADD": "Add new",
     "SAVE": "Save"
   }
