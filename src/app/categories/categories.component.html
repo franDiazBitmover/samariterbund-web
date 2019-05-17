@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ 'CATEGORIES.TITLE' | translate }}</h5>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">{{ 'CATEGORIES.ID' | translate }}</th>
+                <th scope="col">{{ 'CATEGORIES.NAME' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let category of categories">
+                <td>{{ category.id }}</td>
+                <td>{{ category.name }}</td>
+              </tr>
+              <tr>
+                <td>#</td>
+                <td>
+                  <div class="input-group">
+                    <input type="text" class="form-control" name="newName" [(ngModel)]="newName">
+                    <span class="input-group-btn">
+                      <button (click)="addNew()"><i class="fa fa-plus"></i></button>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

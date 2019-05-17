@@ -1,0 +1,61 @@
+import { Component, OnInit } from '@angular/core';
+import { Category } from '../model/category';
+import { Volunteer } from '../model/volunteer';
+import { VolunteerService } from '../services/volunteer-service';
+import { ActivatedRoute } from '@angular/router';
+import { map, flatMap } from 'rxjs/operators'
+
+@Component({
+  selector: 'app-volunteer',
+  templateUrl: './volunteer.component.html',
+  styleUrls: ['./volunteer.component.css']
+})
+export class VolunteerComponent implements OnInit {
+
+  categoriesList: Category[];
+  volunteer: Volunteer = new Volunteer();
+
+  dropdownSettings = {
+    singleSelection: false,
+    idField: 'id',
+    textField: 'name',
+    selectAllText: 'Select All',
+    unSelectAllText: 'UnSelect All',
+    allowSearchFilter: true
+  };
+
+  constructor(private volunteerService: VolunteerService, private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.categoriesList = [
+      {
+        id: 1,
+        name: 'Western'
+      },
+      {
+        id: 2,
+        name: 'Scifi'
+      },
+      {
+        id: 3,
+        name: 'Horror'
+      },
+      {
+        id: 4,
+        name: 'Drama'
+      }
+    ];
+
+    this.route.paramMap.pipe(
+      flatMap(params => this.volunteerService.findOne(params['id'])),
+    ).subscribe( volunteer => {
+      this.volunteer = volunteer;
+    });
+
+  }
+
+  save() {
+    console.log(this.volunteer);
+  }
+
+}

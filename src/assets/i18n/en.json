@@ -1,0 +1,22 @@
+{
+  "MAIN": {
+    "TITLE": "Samariterbund deserves a nice header here!",
+    "BACK": "Back"
+  },
+  "LOGIN": {
+    "USERNAME": "username",
+    "PASSWORD": "password"
+  },
+  "CATEGORIES": {
+    "TITLE": "Categories",
+    "ID": "Id",
+    "NAME": "Name"
+  },
+  "VOLUNTEERS": {
+    "TITLE": "Volunteers",
+    "NAME": "Name",
+    "CATEGORIES": "Categories",
+    "ADD": "Add new",
+    "SAVE": "Save"
+  }
+}

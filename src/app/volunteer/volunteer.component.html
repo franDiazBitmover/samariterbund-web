@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <form class="form-signin" name="loginForm">
+            <div class="row">
+              <div class="form-group">
+                <input type="text" class="form-control" id="name" name="name"
+                  placeholder="{{ 'VOLUNTEERS.NAME' | translate }}" [(ngModel)]="volunteer.name">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <ng-multiselect-dropdown name="categoriesList" [data]="categoriesList"
+                  placeholder="{{ 'VOLUNTEERS.CATEGORIES' | translate }}" [(ngModel)]="volunteer.categories"
+                  [settings]="dropdownSettings">
+                </ng-multiselect-dropdown>
+              </div>
+            </div>
+          </form>
+
+          <div class="row">
+            <div class="col-md-2">
+              <button type="button" class="btn btn-success"
+                (click)="save()">{{ 'VOLUNTEERS.SAVE' | translate }}</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary"
+                routerLink="/volunteers">{{ 'MAIN.BACK' | translate }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
