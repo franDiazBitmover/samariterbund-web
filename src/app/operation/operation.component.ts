@@ -6,6 +6,7 @@ import { empty } from 'rxjs';
 import { Operation } from '../model/operation';
 import { Category } from '../model/category';
 import { CategoryService } from '../services/category-service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-operation',
@@ -27,15 +28,16 @@ export class OperationComponent implements OnInit {
   };
 
   constructor(
-    private operationService: OperationService, 
-    private categoryService:CategoryService, 
+    private operationService: OperationService,
+    private categoryService: CategoryService,
+    private translate: TranslateService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.categoryService.findAll()
-    .subscribe(categories => {
-      this.categoriesList = categories;
-    });
+      .subscribe(categories => {
+        this.categoriesList = categories;
+      });
 
     this.route.paramMap.pipe(
       flatMap(params => {
@@ -53,5 +55,14 @@ export class OperationComponent implements OnInit {
 
   save() {
     console.log(this.operation);
+  }
+
+  delete(id) {
+    this.translate.get('MAIN.CONFIRMATION')
+      .subscribe((text: string) => {
+        if (confirm(text)) {
+          console.log(`deleting id ${id}`)
+        }
+      });
   }
 }

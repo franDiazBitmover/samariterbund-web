@@ -1,7 +1,11 @@
 {
   "MAIN": {
     "TITLE": "Samariterbund",
-    "BACK": "Back"
+    "BACK": "Back",
+    "ADD": "Add new",
+    "SAVE": "Save",
+    "DELETE": "Delete",
+    "CONFIRMATION": "Are you sure you want to delete the item?"
   },
   "LOGIN": {
     "USERNAME": "username",
@@ -15,15 +19,11 @@
   "VOLUNTEERS": {
     "TITLE": "Volunteers",
     "NAME": "Name",
-    "CATEGORIES": "Categories",
-    "ADD": "Add new",
-    "SAVE": "Save"
+    "CATEGORIES": "Categories"
   },
   "OPERATIONS": {
     "TITLE": "Operations",
     "NAME": "Name",
-    "DESCRIPTION": "Description",
-    "ADD": "Add new",
-    "SAVE": "Save"
+    "DESCRIPTION": "Description"
   }
 }

@@ -5,6 +5,7 @@ import { VolunteerService } from '../services/volunteer-service';
 import { ActivatedRoute } from '@angular/router';
 import { map, flatMap } from 'rxjs/operators'
 import { empty } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-volunteer',
@@ -25,7 +26,10 @@ export class VolunteerComponent implements OnInit {
     allowSearchFilter: true
   };
 
-  constructor(private volunteerService: VolunteerService, private route: ActivatedRoute) { }
+  constructor(
+    private volunteerService: VolunteerService,
+    private translate: TranslateService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.categoriesList = [
@@ -63,6 +67,15 @@ export class VolunteerComponent implements OnInit {
 
   save() {
     console.log(this.volunteer);
+  }
+
+  delete(id) {
+    this.translate.get('MAIN.CONFIRMATION')
+      .subscribe((text: string) => {
+        if (confirm(text)) {
+          console.log(`deleting id ${id}`)
+        }
+      });
   }
 
 }
