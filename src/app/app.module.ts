@@ -20,6 +20,7 @@ import { OperationService } from './services/operation-service';
 import { OperationComponent } from './operation/operation.component';
 import { LoginService } from './services/login-service';
 import { TokenHolder } from './services/token-holder';
+import { AuthGuardService } from './services/auth-guard-service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { TokenHolder } from './services/token-holder';
     CategoryService,
     OperationService,
     LoginService,
-    TokenHolder
+    TokenHolder,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

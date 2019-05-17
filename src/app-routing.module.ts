@@ -6,6 +6,7 @@ import { CategoriesComponent } from './app/categories/categories.component';
 import { VolunteersComponent } from './app/volunteers/volunteers.component';
 import { VolunteerComponent } from './app/volunteer/volunteer.component';
 import { OperationComponent } from './app/operation/operation.component';
+import { AuthGuardService } from './app/services/auth-guard-service';
 
 const routes: Routes = [
   {
@@ -16,37 +17,44 @@ const routes: Routes = [
   {
     path: 'categories',
     component: CategoriesComponent,
-    data: { title: 'Categories' }
+    data: { title: 'Categories' },
+    canActivate: [AuthGuardService]
   },
   {
     path: 'volunteers',
     component: VolunteersComponent,
-    data: { title: 'Volunteers' }
+    data: { title: 'Volunteers' },
+    canActivate: [AuthGuardService]
   },
   {
     path: 'new-volunteer',
     component: VolunteerComponent,
-    data: { title: 'Volunteer' }
+    data: { title: 'Volunteer' },
+    canActivate: [AuthGuardService]
   },
   {
     path: 'volunteer/:id',
     component: VolunteerComponent,
-    data: { title: 'Volunteer' }
+    data: { title: 'Volunteer' },
+    canActivate: [AuthGuardService]
   },
   {
     path: 'operations',
     component: OperationsComponent,
-    data: { title: 'Operations' }
+    data: { title: 'Operations' },
+    canActivate: [AuthGuardService]
   },
   {
     path: 'new-operation',
     component: OperationComponent,
-    data: { title: 'Operation' }
+    data: { title: 'Operation' },
+    canActivate: [AuthGuardService]
   },
   {
     path: 'operation/:id',
     component: OperationComponent,
-    data: { title: 'Operation' }
+    data: { title: 'Operation' },
+    canActivate: [AuthGuardService]
   },
   {
     path: '',
