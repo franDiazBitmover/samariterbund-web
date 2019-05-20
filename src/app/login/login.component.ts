@@ -22,10 +22,10 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.loginService.login(this.username, this.password)
-      .subscribe(token => {
-        this.tokenHolder.token = token;
+      .subscribe(response => {
+        this.tokenHolder.setToken(response.token);
         this.router.navigate(["operations"]);
       },
-        error => alert(error));
+        error => console.error(error));
   }
 }

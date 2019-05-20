@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../services/category-service';
 import { TranslateService } from '@ngx-translate/core';
+import { flatMap } from 'rxjs/operators';
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-categories',
@@ -25,17 +27,25 @@ export class CategoriesComponent implements OnInit {
 
   addNew() {
     if (this.newName) {
-      this.categories.push({ id: ++this.nextId, name: this.newName })
+      this.categoryService.save({ name: this.newName })
+        .subscribe(() => { },
+          err => console.error(err));
     }
   }
 
   delete(id) {
-    this.translate.get('MAIN.CONFIRMATION')
-      .subscribe((text: string) => {
+    this.translate.get('MAIN.CONFIRMATION').pipe(
+      flatMap(text => {
         if (confirm(text)) {
-          this.categories = this.categories.filter(c => c.id != id);
+          return this.categoryService.delete(id)
+        } else {
+          return empty()
         }
-      });
+      })
+    ).subscribe(
+      () => { },
+      err => console.error(err)
+    );
   }
 
 }

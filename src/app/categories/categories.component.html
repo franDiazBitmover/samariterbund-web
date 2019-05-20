@@ -8,19 +8,16 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">{{ 'CATEGORIES.ID' | translate }}</th>
                 <th scope="col">{{ 'CATEGORIES.NAME' | translate }}</th>
                 <th scope="col"> </th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let category of categories">
-                <td>{{ category.id }}</td>
                 <td>{{ category.name }}</td>
                 <td><button class="btn btn-primary" (click)="delete(category.id)"><i class="fa fa-minus"></i></button></td>
               </tr>
               <tr>
-                <td>#</td>
                 <td>
                   <div class="input-group">
                     <input type="text" class="form-control" name="newName" [(ngModel)]="newName">
